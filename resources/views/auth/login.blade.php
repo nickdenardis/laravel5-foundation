@@ -1,61 +1,48 @@
 @extends('app')
 
 @section('content')
-<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
-				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
+		<div class="small-6 large-centered medium-centered columns">
+			<form role="form" method="POST" action="/auth/login">
+				<fieldset>
+					<legend>Login</legend>
+
+					<div class="row">
+						<div class="large-12 columns">
+							{!! Form::label('email', 'Email Address:', ['class' => ($errors->has('email')?'error':'')] ) !!}
+							{!! Form::text('email', old('email'), ['class' => ($errors->has('email')?'error':'')] ) !!}
+							@if ($errors->has('email')) <small class="error">{{ $errors->first('email') }}</small> @endif
 						</div>
-					@endif
+					</div>
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
-							</div>
+					<div class="row">
+						<div class="large-12 columns">
+							{!! Form::label('password', 'Password:', ['class' => ($errors->has('password')?'error':'')] ) !!}
+							{!! Form::password('password', ['class' => ($errors->has('password')?'error':'')] ) !!}
+							@if ($errors->has('password')) <small class="error">{{ $errors->first('password') }}</small> @endif
 						</div>
+					</div>
 
-						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
-							</div>
+					<div class="row">
+						<div class="large-12 columns">
+							{!! Form::checkbox('remember' ) !!}
+							{!! Form::label('remember', 'Remember Me') !!}
 						</div>
+					</div>
 
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
+					<div class="row">
+						<div class="large-3 medium-6 columns">
+							{!! Form::submit('Login', ['class' => 'button radius']) !!}
 						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-							</div>
+						<div class="large-9 medium-6 columns">
+							<p class="right"><a href="/password/email">Forgot Your Password?</a></p>
 						</div>
-					</form>
-				</div>
-			</div>
+					</div>
+
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				</fieldset>
+			</form>
+
 		</div>
 	</div>
-</div>
 @endsection

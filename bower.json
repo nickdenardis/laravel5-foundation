@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "homepage": "http://name.app",
+  "authors": [
+    "Nick DeNardis <nick.denardis@gmail.com>"
+  ],
+  "description": "",
+  "main": "public/",
+  "keywords": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "foundation": "5.5.*"
+  }
+}

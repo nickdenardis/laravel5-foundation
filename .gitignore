@@ -1,3 +1,7 @@
 /vendor
 /node_modules
+/bower_components
 .env
+*.sqlite
+/.idea
+www.80

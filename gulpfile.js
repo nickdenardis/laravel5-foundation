@@ -12,5 +12,14 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+    mix.sass('app.scss');
+
+    mix.copy('bower_components/jquery/dist/jquery.min.js', 'public/js/jquery.min.js');
+    mix.copy('bower_components/jquery/dist/jquery.min.map', 'public/js/jquery.min.map');
+    mix.copy('bower_components/modernizr/modernizr.js', 'public/js/modernizr.js');
+    mix.copy('bower_components/foundation/js/foundation.min.js', 'public/js/foundation.min.js');
+
+    mix.scripts(
+        ['app.js'], 'app.js'
+    );
 });
