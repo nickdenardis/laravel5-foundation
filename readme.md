@@ -11,7 +11,6 @@
     
     # Setup the environment
     cp .env.example .env
-    php artisan key:generate
     
     # Setup the base infrastructure
     composer install
@@ -20,6 +19,7 @@
     gulp
     
     # Setup the local database
+    php artisan key:generate
     touch storage/database.sqlite
     php artisan migrate --seed
     
