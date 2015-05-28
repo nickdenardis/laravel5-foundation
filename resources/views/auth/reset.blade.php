@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="small-6 large-centered medium-centered columns">
+		<div class="small-12 medium-8 large-6 large-centered medium-centered columns">
 			<form role="form" method="POST" action="/password/reset">
 				<fieldset>
 					<legend>Reset Password</legend>
