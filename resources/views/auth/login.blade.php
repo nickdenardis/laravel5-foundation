@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="row">
-		<div class="small-6 large-centered medium-centered columns">
+		<div class="small-12 medium-8 large-6 large-centered medium-centered columns">
 			<form role="form" method="POST" action="/auth/login">
 				<fieldset>
 					<legend>Login</legend>
@@ -25,7 +25,7 @@
 
 					<div class="row">
 						<div class="large-12 columns">
-							{!! Form::checkbox('remember' ) !!}
+							{!! Form::checkbox('remember', 1, null, ['id'=>'remember'] ) !!}
 							{!! Form::label('remember', 'Remember Me') !!}
 						</div>
 					</div>
